@@ -4,17 +4,17 @@ class ArticlesController < ApplicationController
    @articles = Article.order(updated_at:  :desc).limit(25)
  end
 
- def  show
- 	@article = Article.find(params[:id] )
+ def show
+    @article = Article.find(params[:id])
  end
-
+ 
  def new
- 	@article.Article.new
+ 	@article = Article.new
  end
 
  def create
- 	 @article = Article.new (article_params)
- 	 if @article.save
+   @article = Article.new (article_params)
+  	 if @article.save
  	 	 redirect_to @article
  	 else
  	 	 render "new"
@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
 
 private
   def article_params
-  	  params.require (:article).permit (:title, :content, :category_ids => [])
+     params.require(:article).permit(:title, :content, :category_ids => [])
+  end
 
-
-   end
+end
