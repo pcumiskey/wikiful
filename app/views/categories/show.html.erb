@@ -1,0 +1,14 @@
+<div>
+  
+  <p>Desc <%= @category.name  %>  </p>
+  <p> ID  <%= @category.id  %>
+
+   <p>Related Articles <% @category.articles.order(updated_at:  :desc).each do |article | %> </p>
+          <%= link_to article.title, article %> &nbsp; 
+          <= Published <%= article.created_at.strftime('%b %d, %Y') %> 
+
+          <% end %> 
+ 
+         
+
+</div>
